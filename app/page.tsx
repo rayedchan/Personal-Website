@@ -194,7 +194,7 @@ export default function Home() {
                   Sudoku Solver
                 </h3>
                 <p className="text-gray-400 mb-4">
-                  Solves 9×9 Sudoku puzzles using advanced techniques such as
+                  Solves 9×9 Sudoku puzzles using known strategies such as
                   Pointing Pairs/Triples, Naked and Hidden Pairs/Triples,
                   Box-Line Reduction, and Bowman’s Bingo.
                 </p>
