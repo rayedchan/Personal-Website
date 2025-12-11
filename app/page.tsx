@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import StockPortfolio from "./components/StockPortfolio";
+import StockPortfolioSkeleton from "./components/StockPortfolioSkeleton";
 
 export default function Home() {
   const name = "Raymond Chan";
@@ -616,7 +617,9 @@ export default function Home() {
       </section>
 
       {/* Stocks Section */}
-      <StockPortfolio isDark={isDark} />
+      <Suspense fallback={<StockPortfolioSkeleton isDark={isDark} />}>
+        <StockPortfolio isDark={isDark} />
+      </Suspense>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">

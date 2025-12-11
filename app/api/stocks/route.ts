@@ -1,3 +1,5 @@
+export const revalidate = 300;
+
 export async function GET() {
   try {
     const apiKey = process.env.STOCK_API_KEY!;
@@ -13,7 +15,7 @@ export async function GET() {
         logo: "https://cdn.brandfetch.io/MSFT?c=1idn481EFT_lgEtb1Ca",
       },
       {
-        symbol: "TLSA",
+        symbol: "TSLA",
         name: "Tesla",
         logo: "https://cdn.brandfetch.io/TSLA?c=1idn481EFT_lgEtb1Ca",
       },
@@ -63,7 +65,10 @@ export async function GET() {
       symbols.map(async ({ symbol, name, logo }) => {
         const response = await fetch(
           `https://finnhub.io/api/v1/quote?symbol=${symbol}`,
-          { headers: { "X-Finnhub-Token": apiKey } }
+          {
+            headers: { "X-Finnhub-Token": apiKey },
+            next: { revalidate: 300 },
+          }
         );
         const data = await response.json();
 
@@ -78,7 +83,11 @@ export async function GET() {
       })
     );
 
-    return Response.json(stockData);
+    return Response.json(stockData, {
+      headers: {
+        "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600",
+      },
+    });
   } catch (error) {
     console.error("Error fetching stock data:", error);
     return Response.json(
