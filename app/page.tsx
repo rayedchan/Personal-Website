@@ -215,27 +215,31 @@ export default function Home() {
                   isDark ? "text-gray-300" : "text-gray-700"
                 }`}
               >
-                I'm a passionate software developer with a strong background in
-                building scalable web applications. I love turning complex
-                problems into simple, beautiful, and intuitive solutions.
+                I’m a software engineer with experience in identity management,
+                full-stack development, and building scalable, customer-facing
+                products. I graduated from Rutgers University in just three
+                years with a degree in Computer Science, then began my career
+                implementing enterprise Identity Management solutions.
               </p>
               <p
                 className={`text-lg mb-6 ${
                   isDark ? "text-gray-300" : "text-gray-700"
                 }`}
               >
-                With experience in modern web technologies, I specialize in
-                creating responsive and user-friendly applications that deliver
-                exceptional user experiences.
+                Later on, I worked on candidate-facing applications built on a
+                modern SPA-BFF architecture and helped integrate a Content
+                Management System that scaled from zero to hundreds of
+                customers, empowering customers to easily customize their sites.
               </p>
               <p
                 className={`text-lg ${
                   isDark ? "text-gray-300" : "text-gray-700"
                 }`}
               >
-                When I'm not coding, you can find me exploring new technologies,
-                contributing to open-source projects, or learning about the
-                latest trends in software development.
+                Outside of work, I’m an active stock investor with a focus on
+                disciplined, options-based strategies. I’m also a long-time
+                Pokémon collector and a dedicated RuneScape player with a fully
+                maxed account.
               </p>
             </div>
             <div
@@ -257,21 +261,62 @@ export default function Home() {
                   isDark ? "text-gray-300" : "text-gray-700"
                 }`}
               >
-                <li className="flex items-center">
-                  <span className="text-blue-400 mr-2">▹</span>
-                  Location: Your City, Country
+                <li>
+                  <div className="flex items-start">
+                    <span className="text-blue-400 mr-2">▹</span>
+                    <div>
+                      <div className="font-semibold">Education</div>
+                      <div>
+                        B.A. in Computer Science — Rutgers University (graduated
+                        in 3 years)
+                      </div>
+                    </div>
+                  </div>
                 </li>
-                <li className="flex items-center">
-                  <span className="text-blue-400 mr-2">▹</span>
-                  Education: Your Degree/University
+                <li>
+                  <div className="flex items-start">
+                    <span className="text-blue-400 mr-2">▹</span>
+                    <div>
+                      <div className="font-semibold">Work Experience</div>
+                      <div>
+                        Systems Engineer @ Hub City Media — Implemented IdM
+                        solutions
+                      </div>
+                      <div>
+                        Software Engineer @ iCIMS — Career Sites, CMS
+                        integration
+                      </div>
+                    </div>
+                  </div>
                 </li>
-                <li className="flex items-center">
-                  <span className="text-blue-400 mr-2">▹</span>
-                  Experience: X Years
+                <li>
+                  <div className="flex items-start">
+                    <span className="text-blue-400 mr-2">▹</span>
+                    <div>
+                      <div className="font-semibold">Stock Investing</div>
+                      <div>
+                        Current Strategy: Cash-secured puts & covered calls
+                      </div>
+                      <div>Biggest Win: 10× on PLTR</div>
+                      <div>
+                        Biggest Loss: Blew up account on SPY Puts in 2020
+                      </div>
+                    </div>
+                  </div>
                 </li>
-                <li className="flex items-center">
-                  <span className="text-blue-400 mr-2">▹</span>
-                  Focus: Full Stack Development
+                <li>
+                  <div className="flex items-start">
+                    <span className="text-blue-400 mr-2">▹</span>
+                    <div>
+                      <div className="font-semibold">Pokémon</div>
+                      <div>Favorite Pokémon: Pikachu</div>
+                      <div>Most valuable card: Japanese Mario Pikachu</div>
+                      <div>
+                        Collection: Booster boxes, ETBs, and miscellaneous rare
+                        items
+                      </div>
+                    </div>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -552,8 +597,8 @@ export default function Home() {
               >
                 <li>Node.js</li>
                 <li>Next.js</li>
-                <li>Nest.js</li>
                 <li>Java</li>
+                <li>Spring</li>
               </ul>
             </div>
 
