@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import StockPortfolio from "./components/StockPortfolio";
 
 export default function Home() {
   const name = "Raymond Chan";
@@ -83,6 +84,16 @@ export default function Home() {
                 }`}
               >
                 Skills
+              </a>
+              <a
+                href="#stocks"
+                className={`transition-colors ${
+                  isDark
+                    ? "text-gray-300 hover:text-white"
+                    : "text-gray-700 hover:text-gray-900"
+                }`}
+              >
+                Stocks
               </a>
               <a
                 href="#contact"
@@ -327,7 +338,7 @@ export default function Home() {
                         : "bg-green-100 text-green-700"
                     }`}
                   >
-                    JQuery
+                    jQuery
                   </span>
                   <span
                     className={`px-3 py-1 rounded-full text-sm ${
@@ -603,6 +614,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Stocks Section */}
+      <StockPortfolio isDark={isDark} />
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
