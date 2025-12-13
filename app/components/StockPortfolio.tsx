@@ -17,10 +17,16 @@ interface StockPortfolioProps {
   isDark: boolean;
 }
 
+type SortField = "name" | "price" | "change" | "changePercent" | null;
+type SortOrder = "asc" | "desc" | null;
+
 export default function StockPortfolio({ isDark }: StockPortfolioProps) {
   const [stocks, setStocks] = useState<Stock[]>([]);
+  const [originalStocks, setOriginalStocks] = useState<Stock[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [sortField, setSortField] = useState<SortField>(null);
+  const [sortOrder, setSortOrder] = useState<SortOrder>(null);
 
   useEffect(() => {
     const fetchStocks = async () => {
@@ -31,6 +37,7 @@ export default function StockPortfolio({ isDark }: StockPortfolioProps) {
         if (!response.ok) throw new Error("Failed to fetch stocks");
         const data: Stock[] = await response.json();
         setStocks(data);
+        setOriginalStocks(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : "An error occurred");
       } finally {
@@ -40,6 +47,67 @@ export default function StockPortfolio({ isDark }: StockPortfolioProps) {
 
     fetchStocks();
   }, []);
+
+  const handleSort = (field: SortField) => {
+    if (sortField !== field) {
+      // New field, start with ascending
+      setSortField(field);
+      setSortOrder("asc");
+      const sorted = [...stocks].sort((a, b) => {
+        if (field === "name") {
+          return a.name.localeCompare(b.name);
+        }
+        return a[field!] - b[field!];
+      });
+      setStocks(sorted);
+    } else if (sortOrder === "asc") {
+      // Same field, switch to descending
+      setSortOrder("desc");
+      const sorted = [...stocks].sort((a, b) => {
+        if (field === "name") {
+          return b.name.localeCompare(a.name);
+        }
+        return b[field!] - a[field!];
+      });
+      setStocks(sorted);
+    } else {
+      // Same field, reset to normal order
+      setSortField(null);
+      setSortOrder(null);
+      setStocks([...originalStocks]);
+    }
+  };
+
+  const getSortIcon = (field: SortField) => {
+    if (sortField !== field) {
+      return (
+        <svg
+          className="w-4 h-4 opacity-50"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path d="M5 12l5 5 5-5H5zm10-4L10 3 5 8h10z" />
+        </svg>
+      );
+    }
+    if (sortOrder === "asc") {
+      return (
+        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M5 12l5 5 5-5H5z" opacity="0.3" />
+          <path d="M15 8L10 3 5 8h10z" />
+        </svg>
+      );
+    }
+    if (sortOrder === "desc") {
+      return (
+        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M5 12l5 5 5-5H5z" />
+          <path d="M15 8L10 3 5 8h10z" opacity="0.3" />
+        </svg>
+      );
+    }
+    return null;
+  };
 
   return (
     <>
@@ -72,32 +140,48 @@ export default function StockPortfolio({ isDark }: StockPortfolioProps) {
                     }`}
                   >
                     <th
-                      className={`px-6 py-4 text-left font-semibold ${
+                      className={`px-6 py-4 text-left font-semibold cursor-pointer hover:bg-gray-700/30 transition-colors ${
                         isDark ? "text-white" : "text-gray-900"
                       }`}
+                      onClick={() => handleSort("name")}
                     >
-                      Company
+                      <div className="flex items-center gap-2">
+                        Company
+                        {getSortIcon("name")}
+                      </div>
                     </th>
                     <th
-                      className={`px-6 py-4 text-right font-semibold ${
+                      className={`px-6 py-4 text-right font-semibold cursor-pointer hover:bg-gray-700/30 transition-colors ${
                         isDark ? "text-white" : "text-gray-900"
                       }`}
+                      onClick={() => handleSort("price")}
                     >
-                      Price
+                      <div className="flex items-center justify-end gap-2">
+                        Price
+                        {getSortIcon("price")}
+                      </div>
                     </th>
                     <th
-                      className={`px-6 py-4 text-right font-semibold ${
+                      className={`px-6 py-4 text-right font-semibold cursor-pointer hover:bg-gray-700/30 transition-colors ${
                         isDark ? "text-white" : "text-gray-900"
                       }`}
+                      onClick={() => handleSort("change")}
                     >
-                      Change
+                      <div className="flex items-center justify-end gap-2">
+                        Change
+                        {getSortIcon("change")}
+                      </div>
                     </th>
                     <th
-                      className={`px-6 py-4 text-right font-semibold ${
+                      className={`px-6 py-4 text-right font-semibold cursor-pointer hover:bg-gray-700/30 transition-colors ${
                         isDark ? "text-white" : "text-gray-900"
                       }`}
+                      onClick={() => handleSort("changePercent")}
                     >
-                      % Change
+                      <div className="flex items-center justify-end gap-2">
+                        % Change
+                        {getSortIcon("changePercent")}
+                      </div>
                     </th>
                   </tr>
                 </thead>

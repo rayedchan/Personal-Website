@@ -59,6 +59,11 @@ export async function GET() {
         name: "Amazon",
         logo: "https://cdn.brandfetch.io/AMZN?c=1idn481EFT_lgEtb1Ca",
       },
+      {
+        symbol: "NFLX",
+        name: "Netflix",
+        logo: "https://cdn.brandfetch.io/NFLX?c=1idn481EFT_lgEtb1Ca",
+      },
     ];
 
     const stockData = await Promise.all(
