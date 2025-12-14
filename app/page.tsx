@@ -171,7 +171,7 @@ export default function Home() {
               Passionate about building innovative solutions, investing in the
               markets, and collecting rare Pokémon products.
             </p>
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-4 flex-wrap">
               <a
                 href="#projects"
                 className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
@@ -187,6 +187,21 @@ export default function Home() {
                 }`}
               >
                 Get In Touch
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1So4l-yldk28ZWRZ94lMtTlsXGrH8XMpU/view"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`px-8 py-3 border rounded-lg transition-colors font-semibold flex items-center gap-2 ${
+                  isDark
+                    ? "border-blue-500 text-blue-400 hover:bg-blue-500/10"
+                    : "border-blue-600 text-blue-600 hover:bg-blue-50"
+                }`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download Resume
               </a>
             </div>
           </div>
