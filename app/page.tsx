@@ -592,9 +592,9 @@ export default function Home() {
                   isDark ? "text-gray-300" : "text-gray-700"
                 }`}
               >
-                <li>JavaScript</li>
                 <li>React</li>
                 <li>Angular</li>
+                <li>JavaScript / TypeScript</li>
                 <li>HTML5 & CSS3</li>
               </ul>
             </div>
@@ -620,10 +620,10 @@ export default function Home() {
                   isDark ? "text-gray-300" : "text-gray-700"
                 }`}
               >
+                <li>Spring</li>
+                <li>Java</li>
                 <li>Node.js</li>
                 <li>Next.js</li>
-                <li>Java</li>
-                <li>Spring</li>
               </ul>
             </div>
 
@@ -676,10 +676,10 @@ export default function Home() {
                   isDark ? "text-gray-300" : "text-gray-700"
                 }`}
               >
-                <li>Git & GitHub</li>
-                <li>Mabl</li>
-                <li>VS Code</li>
                 <li>Vercel</li>
+                <li>Mabl</li>
+                <li>Git & GitHub</li>
+                <li>VS Code</li>
               </ul>
             </div>
           </div>
