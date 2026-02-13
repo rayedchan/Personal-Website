@@ -1,26 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useTheme } from "./context/ThemeContext";
 import StockPortfolio from "./components/StockPortfolio";
 import StockPortfolioSkeleton from "./components/StockPortfolioSkeleton";
 
 export default function Home() {
   const name = "Raymond Chan";
-  const [isDark, setIsDark] = useState(true);
+  const { isDark, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved) {
-      setIsDark(saved === "dark");
-    }
+    setMounted(true);
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    localStorage.setItem("theme", newTheme ? "dark" : "light");
-  };
+  // Prevent hydration mismatch - don't render theme-dependent content until mounted
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div
@@ -687,8 +685,8 @@ export default function Home() {
       </section>
 
       {/* Stocks Section */}
-      <Suspense fallback={<StockPortfolioSkeleton isDark={isDark} />}>
-        <StockPortfolio isDark={isDark} />
+      <Suspense fallback={<StockPortfolioSkeleton />}>
+        <StockPortfolio />
       </Suspense>
 
       {/* Contact Section */}

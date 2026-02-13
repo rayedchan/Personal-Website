@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 import StockPortfolioSkeleton from "./StockPortfolioSkeleton";
 
 interface Stock {
@@ -13,14 +14,11 @@ interface Stock {
   changePercent: number;
 }
 
-interface StockPortfolioProps {
-  isDark: boolean;
-}
-
 type SortField = "name" | "price" | "change" | "changePercent" | null;
 type SortOrder = "asc" | "desc" | null;
 
-export default function StockPortfolio({ isDark }: StockPortfolioProps) {
+export default function StockPortfolio() {
+  const { isDark } = useTheme();
   const [stocks, setStocks] = useState<Stock[]>([]);
   const [originalStocks, setOriginalStocks] = useState<Stock[]>([]);
   const [loading, setLoading] = useState(true);
@@ -112,7 +110,7 @@ export default function StockPortfolio({ isDark }: StockPortfolioProps) {
   return (
     <>
       {loading ? (
-        <StockPortfolioSkeleton isDark={isDark} />
+        <StockPortfolioSkeleton />
       ) : (
         <section id="stocks" className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">

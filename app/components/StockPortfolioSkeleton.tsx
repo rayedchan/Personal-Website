@@ -1,12 +1,9 @@
 "use client";
 
-interface StockPortfolioSkeletonProps {
-  isDark: boolean;
-}
+import { useTheme } from "../context/ThemeContext";
 
-export default function StockPortfolioSkeleton({
-  isDark,
-}: StockPortfolioSkeletonProps) {
+export default function StockPortfolioSkeleton() {
+  const { isDark } = useTheme();
   return (
     <section id="stocks" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
