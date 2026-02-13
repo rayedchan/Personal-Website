@@ -7,6 +7,7 @@ import StockPortfolio from "./components/StockPortfolio";
 import StockPortfolioSkeleton from "./components/StockPortfolioSkeleton";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Link from "next/dist/client/link";
 
 export default function Home() {
   const name: string = "Raymond Chan";
@@ -136,6 +137,14 @@ export default function Home() {
                 modern SPA-BFF architecture and helped integrate a Content
                 Management System that scaled from zero to hundreds of
                 customers, empowering customers to easily customize their sites.
+                Here is a{" "}
+                <Link
+                  href="/work-experience"
+                  className={`font-semibold underline transition-colors ${isDark ? "text-blue-400 hover:text-blue-300" : "text-blue-600 hover:text-blue-700"}`}
+                >
+                  timeline
+                </Link>{" "}
+                of my professional work experience.
               </p>
               <p
                 className={`text-lg ${
