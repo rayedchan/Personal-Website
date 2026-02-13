@@ -675,7 +675,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <Footer name={name} />
+      <Footer />
     </div>
   );
 }

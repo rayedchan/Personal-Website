@@ -1,9 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { useTheme } from "../context/ThemeContext";
 
 export default function Header() {
   const { isDark, toggleTheme } = useTheme();
+  const links = ["home", "about", "projects", "skills", "stocks", "contact"];
+
   return (
     <nav
       className={`fixed top-0 w-full backdrop-blur-md z-50 border-b transition-colors duration-300 ${
@@ -20,66 +23,19 @@ export default function Header() {
             Portfolio
           </div>
           <div className="hidden md:flex space-x-8 items-center">
-            <a
-              href="#home"
-              className={`transition-colors ${
-                isDark
-                  ? "text-gray-300 hover:text-white"
-                  : "text-gray-700 hover:text-gray-900"
-              }`}
-            >
-              Home
-            </a>
-            <a
-              href="#about"
-              className={`transition-colors ${
-                isDark
-                  ? "text-gray-300 hover:text-white"
-                  : "text-gray-700 hover:text-gray-900"
-              }`}
-            >
-              About
-            </a>
-            <a
-              href="#projects"
-              className={`transition-colors ${
-                isDark
-                  ? "text-gray-300 hover:text-white"
-                  : "text-gray-700 hover:text-gray-900"
-              }`}
-            >
-              Projects
-            </a>
-            <a
-              href="#skills"
-              className={`transition-colors ${
-                isDark
-                  ? "text-gray-300 hover:text-white"
-                  : "text-gray-700 hover:text-gray-900"
-              }`}
-            >
-              Skills
-            </a>
-            <a
-              href="#stocks"
-              className={`transition-colors ${
-                isDark
-                  ? "text-gray-300 hover:text-white"
-                  : "text-gray-700 hover:text-gray-900"
-              }`}
-            >
-              Stocks
-            </a>
-            <a
-              href="#contact"
-              className={`transition-colors ${
-                isDark
-                  ? "text-gray-300 hover:text-white"
-                  : "text-gray-700 hover:text-gray-900"
-              }`}
-            >
-              Contact
-            </a>
+            {links.map((section) => (
+              <Link
+                key={section}
+                href={`/#${section}`}
+                className={`transition-colors ${
+                  isDark
+                    ? "text-gray-300 hover:text-white"
+                    : "text-gray-700 hover:text-gray-900"
+                }`}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </Link>
+            ))}
             <button
               onClick={toggleTheme}
               className={`p-2 rounded-lg transition-colors ${

@@ -2,7 +2,8 @@
 
 import { useTheme } from "../context/ThemeContext";
 
-export default function Footer({ name }: { name: string }) {
+export default function Footer() {
+  const name: string = "Raymond Chan";
   const { isDark } = useTheme();
   return (
     <footer

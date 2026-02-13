@@ -46,6 +46,13 @@ export default function StockPortfolio() {
     fetchStocks();
   }, []);
 
+  useEffect(() => {
+    if (!loading && window.location.hash === "#stocks") {
+      const el = document.getElementById("stocks");
+      el?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [loading]);
+
   const handleSort = (field: SortField) => {
     if (sortField !== field) {
       // New field, start with ascending
