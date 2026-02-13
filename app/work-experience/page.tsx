@@ -66,20 +66,21 @@ export default function WorkExperience() {
             >
               Principal Software Engineer @ iCIMS
             </h2>
-            <p>
-              CMS Gen AI (Azure, Node, Express, Nunjucks): Integrated AI-driven
-              automation to generate SEO metadata and localized content for
-              CMS-managed pages, improving discoverability while significantly
-              reducing manual content effort.
-            </p>
-            <p>
-              CMS DoD Foundations (Mabl, TM4J, SonarQube, Veracode, New Relic,
-              SumoLogic, AXE): Established and enforced a Definition of Done
-              (DoD), including 80%+ unit test coverage, end-to-end testing of
-              critical workflows with Mabl, code quality enforcement via Sonar,
-              security scanning with Veracode (SAST/SCA), and regular upgrades
-              to the latest CMS versions.
-            </p>
+            <div className="space-y-4 mt-4 pl-4">
+              <div>
+                <h3 className="font-semibold">CMS Gen AI</h3>
+                <span className="italic text-sm opacity-80">
+                  ApostropheCMS, Azure, Node, Express, Nunjucks
+                </span>
+                <span className="block">
+                  Integrated AI-driven SEO Assistant and Automatic Translation
+                  capabilities to generate optimized metadata and localized
+                  content for CMS-managed pages, improving search
+                  discoverability while significantly reducing manual content
+                  effort.
+                </span>
+              </div>
+            </div>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
@@ -100,21 +101,38 @@ export default function WorkExperience() {
             >
               Senior Software Engineer @ iCIMS
             </h2>
-            <p>
-              Employee Onboarding (TypeScript, Angular, NgRx, NestJS, Redis):
-              Build employee onboarding experience into Career Sites.
-            </p>
-            <p>
-              Career Studio (React, Redux, Node, Express, Java, Spring,
-              Postgres, Angular, NestJS): Full stack application to support
-              empoyee internal mobility in Career Sites.
-            </p>
-            <p>
-              CMS Upgrade (ApostropheCMS, Vue, Node, Express, Nunjucks, AWS S3,
-              MongoDB): Successfully revived and modernized a long-stalled CMS
-              initiative, upgrading it to the latest version after years in the
-              backlog.
-            </p>
+            <div className="space-y-4 mt-4 pl-4">
+              <div>
+                <h3 className="font-semibold">Employee Onboarding</h3>
+                <span className="italic text-sm opacity-80">
+                  TypeScript, Angular, NgRx, NestJS, Redis
+                </span>
+                <span className="block">
+                  Built employee onboarding flow into Career Sites.
+                </span>
+              </div>
+              <div>
+                <h3 className="font-semibold">Career Studio</h3>
+                <span className="italic text-sm opacity-80">
+                  React, Redux, Node, Express, Java, Spring, Postgres, NestJS
+                </span>
+                <span className="block">
+                  Built full-stack platform enabling employee internal mobility
+                  and career progression.
+                </span>
+              </div>
+              <div>
+                <h3 className="font-semibold">CMS Upgrade</h3>
+                <span className="italic text-sm opacity-80">
+                  ApostropheCMS, Vue, Node, Express, Nunjucks, AWS S3, MongoDB
+                </span>
+                <span className="block">
+                  Successfully revived and modernized a long-stalled CMS
+                  initiative, upgrading it to the latest version after years in
+                  the backlog.
+                </span>
+              </div>
+            </div>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
@@ -135,21 +153,32 @@ export default function WorkExperience() {
             >
               Software Engineer II @ iCIMS
             </h2>
-            <p>
-              Talent Discovery (React, Node, Express, Redis): Utilizes AI
-              matching capabilities to enable recruiters to source candidates
-              based on job descriptions.
-            </p>
-            <p>
-              Talent Match (React, Node, Express, Redis): Uses AI-driven
-              matching to help recruiters discover candidates who closely
-              resemble their ideal candidate profile.
-            </p>
-            <span
-              className="text-sm mt-2 block"
-              style={{ color: contentTextColor }}
-            ></span>
+            <div className="space-y-4 mt-4 pl-4">
+              <div>
+                <h3 className="font-semibold">Talent Discovery</h3>
+
+                <span className="italic text-sm opacity-80">
+                  React, Node, Express, Redis
+                </span>
+                <span className="block">
+                  Utilizes AI matching capabilities to enable recruiters to
+                  source candidates aligned with job descriptions
+                </span>
+              </div>
+              <div>
+                <h3 className="font-semibold">Talent Match</h3>
+
+                <span className="italic text-sm opacity-80">
+                  React, Node, Express, Redis
+                </span>
+                <span className="block">
+                  Uses AI-driven matching to help recruiters discover candidates
+                  who closely resemble their ideal candidate profile.
+                </span>
+              </div>
+            </div>
           </VerticalTimelineElement>
+
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
             contentStyle={{
@@ -169,8 +198,16 @@ export default function WorkExperience() {
             >
               Principal Systems Engineer @ Hub City Media
             </h2>
-            <p>HDR: IdM Upgrade</p>
-            <p>Exelon: Staff Augmentation + IdM Upgrade</p>
+            <div className="space-y-4 mt-4 pl-4">
+              <div>
+                <h3 className="font-semibold">HDR - IdM Upgrade</h3>
+              </div>
+              <div>
+                <h3 className="font-semibold">
+                  Exelon - Staff augmentation & IdM Upgrade
+                </h3>
+              </div>
+            </div>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
@@ -193,9 +230,21 @@ export default function WorkExperience() {
             >
               Senior Systems Engineer @ Hub City Media
             </h2>
-            <p>Ameren: IdM Migration + Upgrade</p>
-            <p>Harris: IdM Replacement</p>
-            <p>Intercontinental Exchange (ICE): IdM Upgrade</p>
+            <div className="space-y-4 mt-4 pl-4">
+              <div>
+                <h3 className="font-semibold">
+                  Ameren - IdM Migration & Upgrade
+                </h3>
+              </div>
+              <div>
+                <h3 className="font-semibold">Harris - IdM Replacement</h3>
+              </div>
+              <div>
+                <h3 className="font-semibold">
+                  Intercontinental Exchange (ICE) - IdM Upgrade
+                </h3>
+              </div>
+            </div>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
@@ -218,7 +267,11 @@ export default function WorkExperience() {
             >
               Implementation Specialist @ Hub City Media
             </h2>
-            <p>North Carolina State University (NCSU): IdM Replacement</p>
+            <div className="space-y-4 mt-4 pl-4">
+              <div>
+                <h3 className="font-semibold">NCSU - IdM Replacement</h3>
+              </div>
+            </div>
           </VerticalTimelineElement>
         </VerticalTimeline>
       </section>
