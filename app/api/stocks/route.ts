@@ -45,11 +45,6 @@ export async function GET() {
         logo: "https://cdn.brandfetch.io/AAPL?c=1idn481EFT_lgEtb1Ca",
       },
       {
-        symbol: "XYZ",
-        name: "Block",
-        logo: "https://cdn.brandfetch.io/XYZ?c=1idn481EFT_lgEtb1Ca",
-      },
-      {
         symbol: "META",
         name: "Meta Platforms",
         logo: "https://cdn.brandfetch.io/META?c=1idn481EFT_lgEtb1Ca",
@@ -73,7 +68,7 @@ export async function GET() {
           {
             headers: { "X-Finnhub-Token": apiKey },
             next: { revalidate: 300 },
-          }
+          },
         );
         const data = await response.json();
 
@@ -85,7 +80,7 @@ export async function GET() {
           change: parseFloat(data["d"]), // change
           changePercent: parseFloat(data["dp"]), //percent change
         };
-      })
+      }),
     );
 
     return Response.json(stockData, {
@@ -97,7 +92,7 @@ export async function GET() {
     console.error("Error fetching stock data:", error);
     return Response.json(
       { error: "Failed to fetch stock data" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
