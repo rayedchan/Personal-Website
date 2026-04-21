@@ -133,8 +133,8 @@ export default function PaperTradingPage() {
               Account Balance
             </h2>
             {accountLoading ? (
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                {Array.from({ length: 4 }).map((_, i) => (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {Array.from({ length: 3 }).map((_, i) => (
                   <div
                     key={i}
                     className={`rounded-xl border p-5 h-24 animate-pulse ${
@@ -146,15 +146,10 @@ export default function PaperTradingPage() {
                 ))}
               </div>
             ) : account ? (
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <StatCard
                   label="Total Equity"
                   value={`$${fmt(account.equity)}`}
-                  isDark={isDark}
-                />
-                <StatCard
-                  label="Cash"
-                  value={`$${fmt(account.cash)}`}
                   isDark={isDark}
                 />
                 <StatCard
