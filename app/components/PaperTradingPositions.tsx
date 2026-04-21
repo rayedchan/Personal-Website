@@ -232,26 +232,26 @@ export default function PaperTradingPositions() {
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Stock Holdings */}
+      {/* Options */}
       <div className={cardClass}>
         <div className={headerClass}>
-          <h3 className={titleClass}>Stock Holdings</h3>
-        </div>
-        <PositionsTable
-          positions={stockPositions}
-          isOptions={false}
-          isDark={isDark}
-        />
-      </div>
-
-      {/* Options Plays */}
-      <div className={cardClass}>
-        <div className={headerClass}>
-          <h3 className={titleClass}>Options Plays</h3>
+          <h3 className={titleClass}>Options</h3>
         </div>
         <PositionsTable
           positions={optionPositions}
           isOptions={true}
+          isDark={isDark}
+        />
+      </div>
+
+      {/* Stocks */}
+      <div className={cardClass}>
+        <div className={headerClass}>
+          <h3 className={titleClass}>Stocks</h3>
+        </div>
+        <PositionsTable
+          positions={stockPositions}
+          isOptions={false}
           isDark={isDark}
         />
       </div>
