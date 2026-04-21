@@ -27,6 +27,7 @@ export async function GET() {
         unrealizedPL: parseFloat(p.unrealized_pl),
         unrealizedPLPct: parseFloat(p.unrealized_plpc) * 100,
         side: p.side as string,
+        assetClass: p.asset_class as string,
       })),
     );
   } catch (error) {

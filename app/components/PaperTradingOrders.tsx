@@ -15,7 +15,6 @@ interface Order {
   timeInForce: string;
   submittedAt: string;
   filledAt: string | null;
-  expiresAt: string | null;
 }
 
 const PAGE_SIZE = 10;
@@ -205,14 +204,13 @@ export default function PaperTradingOrders() {
                   <th className={thCls}>Status</th>
                   <th className={thCls}>Submitted At</th>
                   <th className={thCls}>Filled At</th>
-                  <th className={thCls}>Expires At</th>
                 </tr>
               </thead>
               <tbody>
                 {paginated.length === 0 ? (
                   <tr>
                     <td
-                      colSpan={10}
+                      colSpan={9}
                       className={`px-6 py-8 text-center text-sm ${
                         isDark ? "text-gray-400" : "text-gray-500"
                       }`}
@@ -265,7 +263,6 @@ export default function PaperTradingOrders() {
                       </td>
                       <td className={tdCls}>{formatDate(o.submittedAt)}</td>
                       <td className={tdCls}>{formatDate(o.filledAt)}</td>
-                      <td className={tdCls}>{formatDate(o.expiresAt)}</td>
                     </tr>
                   ))
                 )}
